@@ -3,8 +3,8 @@
 def main():
     # Prompting user for input
     task = input("Enter the task description: ")
-    priority = input("Enter the priority level (high, medium, low): ").strip().lower()
-    time_bound = input("Is the task time-bound? (yes or no): ").strip().lower()
+    priority = input("Enter the priority level (high/medium/low): ").strip().lower()
+    time_bound = input("Is the task time-bound? (yes/no): ").strip().lower()
 
     # Processing the task based on priority and time sensitivity
     match priority:
