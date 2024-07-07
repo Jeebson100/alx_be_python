@@ -21,8 +21,8 @@ def main():
     if time_bound == 'yes':
         reminder += " This task requires immediate attention today!"
 
-    # Providing the customized reminder
-    print(reminder)
+    # Printing the customized reminder
+    print(f"Reminder:\n{reminder}")
 
 if __name__ == "__main__":
     main()
