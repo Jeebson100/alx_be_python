@@ -1,30 +1,46 @@
+# File: temp_conversion_tool.py
+
+# Global conversion factors
 FAHRENHEIT_TO_CELSIUS_FACTOR = 5 / 9
 CELSIUS_TO_FAHRENHEIT_FACTOR = 9 / 5
-FREEZING_POINT_DIFFERENCE = 32
 
 def convert_to_celsius(fahrenheit):
+    """
+    Convert temperature from Fahrenheit to Celsius.
+    """
     celsius = (fahrenheit - 32) * FAHRENHEIT_TO_CELSIUS_FACTOR
     return celsius
 
 def convert_to_fahrenheit(celsius):
+    """
+    Convert temperature from Celsius to Fahrenheit.
+    """
     fahrenheit = (celsius * CELSIUS_TO_FAHRENHEIT_FACTOR) + 32
     return fahrenheit
 
 def main():
-    try:
-        temp = float(input("Enter the temperature to convert: "))
-        unit = input("Is this temperature in Celsius or Fahrenheit? (C/F): ").strip().upper()
+    while True:
+        try:
+            temperature = float(input("Enter the temperature: "))
+        except ValueError:
+            print("Invalid temperature. Please enter a numeric value.")
+            continue
+        
+        scale = input("Enter the scale of the temperature (C for Celsius, F for Fahrenheit): ").strip().upper()
 
-        if unit == 'C':
-            converted_temp = convert_to_fahrenheit(temp)
-            print(f"{temp}°C is {converted_temp}°F")
-        elif unit == 'F':
-            converted_temp = convert_to_celsius(temp)
-            print(f"{temp}°F is {converted_temp}°C")
+        if scale == 'F':
+            celsius_temp = convert_to_celsius(temperature)
+            print(f"{temperature} Fahrenheit is {celsius_temp:.2f} Celsius.")
+        elif scale == 'C':
+            fahrenheit_temp = convert_to_fahrenheit(temperature)
+            print(f"{temperature} Celsius is {fahrenheit_temp:.2f} Fahrenheit.")
         else:
-            print("Invalid unit. Please enter 'C' for Celsius or 'F' for Fahrenheit.")
-    except ValueError:
-        print("Invalid temperature. Please enter a numeric value.")
+            print("Invalid scale. Please enter 'C' or 'F'.")
+
+        choice = input("Do you want to convert another temperature? (yes/no): ").strip().lower()
+        if choice != 'yes':
+            print("Exiting temperature conversion tool. Goodbye!")
+            break
 
 if __name__ == "__main__":
     main()
