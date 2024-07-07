@@ -1,12 +1,17 @@
+# File: shopping_list_manager.py
+
+def display_menu():
+    print("Shopping List Manager")
+    print("1. Add item")
+    print("2. Remove item")
+    print("3. View list")
+    print("4. Exit")
+
 def main():
     shopping_list = []
 
     while True:
-        print("\nShopping List Manager")
-        print("1. Add item")
-        print("2. Remove item")
-        print("3. View list")
-        print("4. Exit")
+        display_menu()
         
         choice = input("Enter your choice (1-4): ").strip()
 
@@ -40,3 +45,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
